@@ -600,6 +600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a495a7d13db7b4b8403bf95bc93d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
+  dirComp: {x: 0, y: 0}
   speed: 3
   wallPrefab: {fileID: 6513623968574111458, guid: a978d54cb93723344a9f5808314a5f7d, type: 3}
   linecastDistance: 2

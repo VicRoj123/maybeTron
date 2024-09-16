@@ -8,6 +8,7 @@ public class YouScript2 : MonoBehaviour
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
+    private Vector2 direction;
     
     public float speed = 5f;
     public GameObject wallPrefab;
@@ -19,29 +20,34 @@ public class YouScript2 : MonoBehaviour
     void Start ()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
+        direction = Vector2.right;
         spawnWall();
     }
 
     // Update is called once per frame
     void Update () 
     {
-        if (Input.GetKeyDown(upKey)) {
+        if (Input.GetKeyDown(upKey) && direction != Vector2.down) {
             GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+            direction = Vector2.up;
             spawnWall();
         }
-        else if (Input.GetKeyDown(downKey)) {
+        else if (Input.GetKeyDown(downKey) && direction != Vector2.up) {
             GetComponent<Rigidbody2D>().velocity = -Vector2.up * speed;
+            direction = Vector2.down;
             spawnWall();
         }
-        else if (Input.GetKeyDown(rightKey)) {
+        else if (Input.GetKeyDown(rightKey) && direction != Vector2.left) {
             GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
+            direction = Vector2.right;
             spawnWall();
         }
-        else if (Input.GetKeyDown(leftKey)) {
+        else if (Input.GetKeyDown(leftKey) && direction != Vector2.right) {
             GetComponent<Rigidbody2D>().velocity = -Vector2.right * speed;
+            direction = Vector2.left;
             spawnWall();
         }    
-        
+       
         fitColliderBetween(wall, lastWallEnd, transform.position);
     }
 

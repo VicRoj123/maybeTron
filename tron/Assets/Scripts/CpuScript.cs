@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CpuScript : MonoBehaviour
 {
-    private Vector2 direction;
+    public Vector2 direction;
+
+    public Vector2 dirComp;
     //public float turnTime = 0.5f;
     private float turnTimer;
     
@@ -16,17 +18,17 @@ public class CpuScript : MonoBehaviour
     private Vector2 lastWallEnd;
     int newDirection;
     private Collider2D aiCollider;
-    public float linecastDistance = 2f;
+    public float linecastDistance = 0.5f;
     
     // Start is called before the first frame update
     void Start()
     {
-        aiCollider = GetComponent<Collider2D>();
+        //aiCollider = GetComponent<Collider2D>();
         direction = Vector2.left;
         GetComponent<Rigidbody2D>().velocity = direction * speed;
         newDirection = 4;
         spawnWall();
-        SetRandomDirection();
+        //SetRandomDirection();
         turnTimer = 1f;
     }
 
@@ -39,8 +41,9 @@ public class CpuScript : MonoBehaviour
         turnTimer -= Time.deltaTime;
 
         // Check for obstacles or decide to turn after some time
-        if (turnTimer <= 0)
+        if (IsObstacleAhead() || turnTimer <= 0)
         {
+            print("50");
             TurnRandomly();
             
         }
@@ -54,30 +57,32 @@ public class CpuScript : MonoBehaviour
         int randomDir;
         do
         {
+            print("99");
              randomDir = Random.Range(1, 5);
             
-        } while ((randomDir % 2) == (newDirection % 2));
+        
 
             switch (randomDir)
             {
                 case 1:
-                    direction = Vector2.up;
+                    dirComp = Vector2.up;
                     break;
                 case 2:
-                    direction = Vector2.right;
+                    dirComp = Vector2.right;
                     break;
                 case 3:
-                    
-                    direction = Vector2.down;
+                    dirComp = Vector2.down;
                     break;
                 case 4:
-                    direction = Vector2.left;
+                    dirComp = Vector2.left;
                     break;
             }
-            newDirection = randomDir;
-            print(newDirection.ToString());
+        } while (dirComp == -direction);
+            direction = dirComp;
 
+            
             GetComponent<Rigidbody2D>().velocity =  direction * speed;
+            spawnWall();
     }
     
     bool IsObstacleAhead()
@@ -89,6 +94,7 @@ public class CpuScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Linecast(sightStart, end );
         if (hit.collider)
         {
+            Debug.Log("Obstacle Ahead");
             // If the ray hits something, return true (obstacle ahead)
             print("Obstacle Ahead");
             return true;
