@@ -16,9 +16,8 @@ public class CpuScript : MonoBehaviour
     private Collider2D wall;
 
     private Vector2 lastWallEnd;
-    int newDirection;
     private Collider2D aiCollider;
-    public float linecastDistance = 0.5f;
+    public float linecastDistance = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,6 @@ public class CpuScript : MonoBehaviour
         //aiCollider = GetComponent<Collider2D>();
         direction = Vector2.left;
         GetComponent<Rigidbody2D>().velocity = direction * speed;
-        newDirection = 4;
         spawnWall();
         //SetRandomDirection();
         turnTimer = 1f;

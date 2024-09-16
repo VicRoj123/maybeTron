@@ -8,7 +8,7 @@ public class YouScript2 : MonoBehaviour
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
-    private Vector2 direction;
+    public Vector2 direction;
     
     public float speed = 5f;
     public GameObject wallPrefab;
