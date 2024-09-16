@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8234331}
   - component: {fileID: 8234330}
   - component: {fileID: 8234332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Border1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 8234329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.61, y: -0.07, z: 0}
+  m_LocalPosition: {x: 13.04, y: 0.16, z: 0}
   m_LocalScale: {x: 5.461115, y: 11.029738, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,7 +236,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -424,7 +424,7 @@ Transform:
   m_GameObject: {fileID: 91953853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6, y: 2.65, z: 0}
+  m_LocalPosition: {x: -7.68, y: 0.01, z: 0}
   m_LocalScale: {x: 0.6958, y: 0.6388, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -583,7 +583,7 @@ Transform:
   m_GameObject: {fileID: 97390549}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.97, y: -0.85, z: 0}
+  m_LocalPosition: {x: 6.65, y: 0.06, z: 0}
   m_LocalScale: {x: 0.6958, y: 0.6388, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -604,9 +604,10 @@ MonoBehaviour:
   speed: 5
   layerMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 115
   playerTarget: {fileID: 91953853}
   movement: {x: 0, y: 0}
+  value: 0
   wallPrefab: {fileID: 6513623968574111458, guid: a978d54cb93723344a9f5808314a5f7d, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -714,7 +715,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.554338
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -905,8 +906,8 @@ Transform:
   m_GameObject: {fileID: 671474122}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0011, y: 0.0946, z: 0}
-  m_LocalScale: {x: 11.951751, y: 8.037478, z: 1}
+  m_LocalPosition: {x: 0.0011, y: 0.9022, z: 0}
+  m_LocalScale: {x: 20.322174, y: 12.442908, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -922,7 +923,7 @@ GameObject:
   - component: {fileID: 981149236}
   - component: {fileID: 981149235}
   - component: {fileID: 981149237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Border1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,8 +991,8 @@ Transform:
   m_GameObject: {fileID: 981149234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.0477, y: 6.85, z: 0}
-  m_LocalScale: {x: 5.461115, y: 12.485663, z: 1}
+  m_LocalPosition: {x: -0.08, y: 8.28, z: 0}
+  m_LocalScale: {x: 5.461115, y: 20.451128, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1025,7 +1026,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1052,7 +1053,7 @@ GameObject:
   - component: {fileID: 1799734323}
   - component: {fileID: 1799734322}
   - component: {fileID: 1799734324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Border1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1121,7 @@ Transform:
   m_GameObject: {fileID: 1799734321}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.62, y: -0.02, z: 0}
+  m_LocalPosition: {x: -13, y: 0.02, z: 0}
   m_LocalScale: {x: 5.461115, y: 11.029738, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1155,7 +1156,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1312,7 +1313,7 @@ GameObject:
   - component: {fileID: 1816753093}
   - component: {fileID: 1816753092}
   - component: {fileID: 1816753094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Border1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,8 +1381,8 @@ Transform:
   m_GameObject: {fileID: 1816753091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.17, y: -6.67, z: 0}
-  m_LocalScale: {x: 5.461115, y: 12.485663, z: 1}
+  m_LocalPosition: {x: -0.1, y: -7.92, z: 0}
+  m_LocalScale: {x: 5.461115, y: 20.85496, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1415,7 +1416,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

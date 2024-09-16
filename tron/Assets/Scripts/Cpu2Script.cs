@@ -1,7 +1,9 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using Random = System.Random;
+
 
 public class Cpu2Script : MonoBehaviour
 {
@@ -13,12 +15,14 @@ public class Cpu2Script : MonoBehaviour
     public GameObject playerTarget;
     public Vector2 movement;
     private List<Vector2> directions;
+    public float value;
     
     public GameObject wallPrefab;
 
     private Collider2D wall;
 
     private Vector2 lastWallEnd;
+    bool alive = true;
     
                 
     void Awake()
@@ -35,24 +39,25 @@ public class Cpu2Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChangeDirection();
-        if (target)
+        if (alive)
         {
-            
-            print("hello");
-            RaycastHit2D check = Physics2D.Raycast(transform.position, movement, 1f,layerMask);
-            if (check.distance == 0)
+            RaycastHit2D check = Physics2D.Raycast(transform.position, movement, 1f, layerMask);
+
+            value = Random.Range(0.0f, 1.0f);
+            if (value > 0.85)
             {
-                GetComponent<Rigidbody2D>().velocity = movement * speed;
+                ChangeDirection();
             }
-            else
+
+            if (check.distance != 0)
             {
-                movement = -movement;
+                ChangeDirection();
             }
-            
-            
+            spawnWall();
+            fitColliderBetween(wall, lastWallEnd, transform.position);
         }
         
+
     }//End of update
 
     void ChangeDirection(){
@@ -70,6 +75,8 @@ public class Cpu2Script : MonoBehaviour
 
         RaycastHit2D hitA = Physics2D.Raycast(transform.position, firstDir, 5f, layerMask);
         RaycastHit2D hitB = Physics2D.Raycast(transform.position, secondDir, 5f,layerMask);
+        print(hitA.distance);
+        print(hitB.distance);
         if (hitA.collider && hitB.collider)
         {
             if (hitA.distance >= hitB.distance)
@@ -98,19 +105,25 @@ public class Cpu2Script : MonoBehaviour
            
             movement = firstDir;
         }
+        GetComponent<Rigidbody2D>().velocity = movement * speed;
     }
-    
+
+    void turnFrequency()
+    {
+        
+    }
     void spawnWall()
     {
         lastWallEnd = transform.position;
         GameObject g = Instantiate(wallPrefab, transform.position, Quaternion.identity);
         wall = g.GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wall);
     }
 
     void fitColliderBetween(Collider2D collider, Vector2 a, Vector2 b)
     {
         collider.transform.position = a + (b - a) * 0.5f;
-
+        
         float dist = Vector2.Distance(a, b);
         if (a.x != b.x)
         {
@@ -126,7 +139,7 @@ public class Cpu2Script : MonoBehaviour
     {
         if (collision != wall)
         {
-            print("Player lost");
+            print("Player won");
             Destroy(gameObject);
         }
     }
